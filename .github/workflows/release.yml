@@ -6,12 +6,11 @@ on:
       - 'v*'
 
 jobs:
-  default:
-    run:
-      working-directory: notes-app/api
-      
   release:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: notes-app/api  # ← si vous voulez éviter de le répéter partout
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,11 +23,9 @@ jobs:
           cache-dependency-path: notes-app/api/package-lock.json
 
       - name: Install dependencies
-        working-directory: notes-app/api
         run: npm ci
 
       - name: Run tests
-        working-directory: notes-app/api
         run: npm test
 
       - name: Login Docker Hub
