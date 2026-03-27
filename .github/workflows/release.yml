@@ -1,9 +1,7 @@
 name: Release - Build & Push (version tag)
 
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch:
 
 jobs:
   release:
