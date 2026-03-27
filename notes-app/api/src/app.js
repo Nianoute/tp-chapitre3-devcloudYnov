@@ -9,6 +9,7 @@ function isNonEmptyString(v) {
 }
 
 function isStringOrUndefined(v) {
+  console.log("isStringOrUndefined", v, typeof v);
   return v === undefined || typeof v === "string";
 }
 
