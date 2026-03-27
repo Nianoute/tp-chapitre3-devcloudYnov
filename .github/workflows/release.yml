@@ -34,9 +34,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build & Push versioned image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
-          files: notes-app/api/Dockerfile
-          context: notes-app/api
+          context: notes-app
+          file: notes-app/api/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/notes-app:${{ github.ref_name }}
