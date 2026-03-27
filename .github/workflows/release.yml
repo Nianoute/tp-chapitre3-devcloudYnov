@@ -36,6 +36,7 @@ jobs:
       - name: Build & Push versioned image
         uses: docker/build-push-action@v5
         with:
+          files: notes-app/api/Dockerfile
           context: notes-app/api
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/notes-app:${{ github.ref_name }}
