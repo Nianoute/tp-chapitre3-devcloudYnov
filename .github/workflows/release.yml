@@ -6,6 +6,10 @@ on:
       - 'v*'
 
 jobs:
+  default:
+    run:
+      working-directory: notes-app/api
+      
   release:
     runs-on: ubuntu-latest
     steps:
